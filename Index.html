@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E8F1EC; --surface:#F6FAF7; --ink:#12332F; --muted:#4A6A64; --line:#C5D8CF;
+  --leaf:#2F8553; --sky:#2B8DB3; --sun:#E8962B; --sun-ink:#7A4300; --spruce:#12332F;
+  --on-spruce:#E8F1EC;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E2623; --surface:#163631; --ink:#E6F1EC; --muted:#9DBBB2; --line:#2A4D46;
+    --leaf:#5CC088; --sky:#6CC3E4; --sun:#F2AE4C; --sun-ink:#FFD9A0; --spruce:#081816; --on-spruce:#E6F1EC;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E2623; --surface:#163631; --ink:#E6F1EC; --muted:#9DBBB2; --line:#2A4D46;
+  --leaf:#5CC088; --sky:#6CC3E4; --sun:#F2AE4C; --sun-ink:#FFD9A0; --spruce:#081816; --on-spruce:#E6F1EC;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+
+/* hero */
+.hero{background:var(--spruce);color:var(--on-spruce);position:relative;overflow:hidden;padding:clamp(3.5rem,9vw,7rem) 0 clamp(3rem,8vw,6rem)}
+.hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.2fr .8fr;align-items:center}
+.hero h1{font:800 clamp(2.6rem,7vw,5rem)/1.02 var(--display);letter-spacing:-.03em;margin:0 0 1.25rem}
+.hero p{max-width:34ch;font-size:1.2rem;color:#B9D3CA;margin:0 0 1.75rem}
+.badge{display:inline-flex;gap:.6rem;align-items:center;background:var(--sun);color:#2B1700;font:700 1rem/1.3 var(--display);padding:.7rem 1.1rem;border-radius:999px}
+.badge svg{flex:none}
+.rings{width:100%;max-width:380px;justify-self:center;overflow:visible}
+.rings circle{fill:none;stroke-linecap:round;transform-origin:50% 50%}
+.rings .r{stroke-dasharray:1;stroke-dashoffset:1;animation:grow 2.2s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.rings .r:nth-child(2){animation-delay:.25s}.rings .r:nth-child(3){animation-delay:.5s}
+.rings .r:nth-child(4){animation-delay:.75s}.rings .r:nth-child(5){animation-delay:1s}
+
+/* sections */
+section.group{padding:clamp(2.5rem,6vw,4.5rem) 0 0}
+.group h2{font:700 clamp(1.6rem,3.4vw,2.2rem)/1.15 var(--display);letter-spacing:-.02em;margin:0 0 .4rem;display:flex;align-items:center;gap:.7rem}
+.group h2 i{width:.9rem;height:.9rem;border-radius:50%;background:var(--c);flex:none}
+.group .lede{color:var(--muted);margin:0 0 1.5rem;max-width:56ch}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr))}
+.list li{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:4px 14px 14px 4px;padding:1.1rem 1.2rem}
+.list b{display:block;font:700 1.12rem/1.3 var(--display);margin-bottom:.2rem}
+.list span{color:var(--muted);font-size:.98rem}
+.leaf{--c:var(--leaf)}.sky{--c:var(--sky)}.sun{--c:var(--sun)}
+
+/* closing */
+.closing{margin:clamp(3rem,7vw,5rem) 0 0;background:var(--spruce);color:var(--on-spruce);padding:clamp(2.5rem,6vw,4rem) 0}
+.closing p{font:800 clamp(1.8rem,4.6vw,3rem)/1.1 var(--display);letter-spacing:-.02em;margin:0;max-width:20ch}
+.closing small{display:block;margin-top:1.5rem;color:#9DBBB2}
+
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}.rings{max-width:240px;order:-1;justify-self:start}}
+@media (prefers-reduced-motion:reduce){.rings .r{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>My Portfolio</h1>
+      <p>Proud Sustainability Ambassador, here to make a difference.</p>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10 0 12-4 17-9 17z"/><path d="M4 21c2-6 5-9 9-11"/></svg>
+        Global Sustainability Award Winner 2026-27
+      </div>
+    </div>
+    <svg class="rings" viewBox="0 0 200 200" role="img" aria-label="Growth rings in green, blue and amber">
+      <circle class="r" cx="100" cy="100" r="88" pathLength="1" stroke="#5CC088" stroke-width="10"/>
+      <circle class="r" cx="100" cy="100" r="70" pathLength="1" stroke="#6CC3E4" stroke-width="10"/>
+      <circle class="r" cx="100" cy="100" r="52" pathLength="1" stroke="#F2AE4C" stroke-width="10"/>
+      <circle class="r" cx="100" cy="100" r="34" pathLength="1" stroke="#5CC088" stroke-width="10"/>
+      <circle class="r" cx="100" cy="100" r="16" pathLength="1" stroke="#E8F1EC" stroke-width="10"/>
+    </svg>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="group leaf" aria-labelledby="h-sus">
+    <h2 id="h-sus"><i></i>Sustainability</h2>
+    <p class="lede">Awards and roles for protecting the planet.</p>
+    <ul class="list">
+      <li><b>Global Sustainability Award Winner</b><span>2026-27</span></li>
+      <li><b>Jane Goodall Roots and Shoots Award</b><span>Recipient</span></li>
+      <li><b>Sustainability Ambassador</b><span>Proud ambassador since 8th grade</span></li>
+    </ul>
+  </section>
+
+  <section class="group sky" aria-labelledby="h-comp">
+    <h2 id="h-comp"><i></i>Competitions</h2>
+    <p class="lede">Placements in national and global contests.</p>
+    <ul class="list">
+      <li><b>1st Place</b><span>Special League Olympiad, National Qualifiers</span></li>
+      <li><b>2nd Place</b><span>National Qualifiers for Robotex</span></li>
+      <li><b>2nd Place</b><span>Global Zenvoys Competition, held by Sabari Indian School</span></li>
+      <li><b>7th Place Nationally</b><span>Spell Bee</span></li>
+    </ul>
+  </section>
+
+  <section class="group sun" aria-labelledby="h-speak">
+    <h2 id="h-speak"><i></i>Speaking and debate</h2>
+    <p class="lede">Public speaking, leadership and diplomacy on stage.</p>
+    <ul class="list">
+      <li><b>Best Speaker</b><span>Collaborative Competition with Westford College Toastmasters Club and Muhaisnah Gavel Club</span></li>
+      <li><b>Project 9 Toastmasters</b><span>Speaker and Gavelier</span></li>
+      <li><b>Model United Nations</b><span>Participation in countless MUNs</span></li>
+      <li><b>Al Falah Conference</b><span>Participant</span></li>
+    </ul>
+  </section>
+
+  <section class="group leaf" aria-labelledby="h-school">
+    <h2 id="h-school"><i></i>School and leadership</h2>
+    <p class="lede">Academic honors and student leadership.</p>
+    <ul class="list">
+      <li><b>Annual Prize Day Award</b><span>Recipient for SST and Overall Topper</span></li>
+      <li><b>Principal's Ward Award</b><span>Recipient</span></li>
+      <li><b>Deputy Head Boy</b><span>5th grade</span></li>
+      <li><b>Sustainability Ambassador</b><span>8th grade</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="closing">
+  <div class="wrap">
+    <p>Here to make a difference.</p>
+    <small>My Portfolio</small>
+  </div>
+</footer>
+</body>
+</html>
